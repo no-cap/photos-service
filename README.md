@@ -9,10 +9,6 @@ A service that displays scrollable and clickable photos for given restuarant pag
 [] npm start to start server
 [] npm run build:react to start compiler/transpile
 
-DOCKER SPECIFIC:
-[] to work with docker, the mongo DB address needs to be changed in the seeders/dummyData.js folder (it's the docker DB)
-[] use the same docker DB address from above in the server/index.js file for docker as well
-
 ## Related Projects
 
   - https://github.com/no-cap/popular-dishes-service
@@ -23,16 +19,18 @@ DOCKER SPECIFIC:
 ---
 ### CREATE
 
-`POST /photo`
-  Posts a photo url to the photos table
+`POST /photo` [^1]
+ [^1]: Posts a photo url to the photos table
 
   Example input:
+  ```
   {
     date: "03/01/18"
     username: "Martin Bushwik"
     comment: "I couldn't believe it wasn't butter, I just couldn't."
     url: "https://amazon.s3/no-cap/photo/1"
   }
+  ```
 ---
 ### READ
 
@@ -40,19 +38,23 @@ DOCKER SPECIFIC:
   Gets all photos for restaurant with an id of 1234
 
   Example response:
-  [{
-    id: 2
-    date: 01/22/19,
-    username: "Penelope Rivers",
-    comment: "The most delicious salad I've ever eaten! It was also the only salad I've ever eaten.",
-    url: "https://amazon.s3/no-cap/photo/2"
-  },
-  {} ...
+  ```
+  [
+    {
+      id: 2
+      date: 01/22/19,
+      username: "Penelope Rivers",
+      comment: "The most delicious salad I've ever eaten! It was also the only salad I've ever eaten.",
+      url: "https://amazon.s3/no-cap/photo/2"
+    },
+    {} ...
   ]
+  ```
 `GET /photo/1234`
   Gets the photo with an id of 1234
 
   Example response:
+  ```
   {
     id: 5
     date: 04/22/14,
@@ -60,6 +62,7 @@ DOCKER SPECIFIC:
     comment: "Not the best, not the worst.",
     url: "https://amazon.s3/no-cap/photo/5"
   }
+  ```
 ---
 ### UPDATE
 
@@ -67,12 +70,14 @@ DOCKER SPECIFIC:
   Updates the photo with the id of 1234
 
   Example input:
+  ```
   {
     date: "03/01/18"
     username: "Martin Bushwik"
     comment: "I was happy I didn't have to catch the fish myself."
     url: "https://amazon.s3/no-cap/photo/1"
   }
+  ```
 ---
 ### DELETE
 
@@ -80,7 +85,9 @@ DOCKER SPECIFIC:
   Deletes the photo with the id of 1234
 
   Example input:
+  ```
   {
     method: 'DELETE',
     url: /photo/1234
   }
+  ```
