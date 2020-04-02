@@ -1,6 +1,10 @@
-# see-all-photos-services
+# photos-service
 
-[] install all dependencies below (npm install)
+A service that displays scrollable and clickable photos for given restuarant pages. 
+
+## Getting Started
+
+[] Install dependencies - ` npm install `
 [] generate a config.js file from the template with S3 keys from AWS
 [] npm start to start server
 [] npm run build:react to start compiler/transpile
@@ -9,46 +13,74 @@ DOCKER SPECIFIC:
 [] to work with docker, the mongo DB address needs to be changed in the seeders/dummyData.js folder (it's the docker DB)
 [] use the same docker DB address from above in the server/index.js file for docker as well
 
-> Project description
-A component app that displays scrollable and clickable photos for users. 
-
 ## Related Projects
 
-  - https://github.com/wonder4-com/popular-dishes
-  - https://github.com/wonder4-com/Restaurant-Information
-  - https://github.com/wonder4-com/service-reviews
-  - https://github.com/wonder4-com/see-all-photos-proxy
-  ** project REPO https://github.com/wonder4-com
- 
-  
+  - https://github.com/no-cap/popular-dishes-service
+  - https://github.com/no-cap/reviews-service
+  - https://github.com/no-cap/restaurant-info-service
 
-## Table of Contents
+## API Documentation
+---
+### CREATE
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+`POST /photo`
+  Posts a photo url to the photos table
 
-## Usage
+  Example input:
+  {
+    date: "03/01/18"
+    username: "Martin Bushwik"
+    comment: "I couldn't believe it wasn't butter, I just couldn't."
+    url: "https://amazon.s3/no-cap/photo/1"
+  }
+---
+### READ
 
-> Some usage instructions
+`GET restaurant/1234/photos`
+  Gets all photos for restaurant with an id of 1234
 
+  Example response:
+  [{
+    id: 2
+    date: 01/22/19,
+    username: "Penelope Rivers",
+    comment: "The most delicious salad I've ever eaten! It was also the only salad I've ever eaten.",
+    url: "https://amazon.s3/no-cap/photo/2"
+  },
+  {} ...
+  ]
+`GET /photo/1234`
+  Gets the photo with an id of 1234
 
-## Requirements
+  Example response:
+  {
+    id: 5
+    date: 04/22/14,
+    username: "Joan Sounders",
+    comment: "Not the best, not the worst.",
+    url: "https://amazon.s3/no-cap/photo/5"
+  }
+---
+### UPDATE
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
+`PUT /photo/1234`
+  Updates the photo with the id of 1234
 
-- Node 6.13.0
-- etc
+  Example input:
+  {
+    date: "03/01/18"
+    username: "Martin Bushwik"
+    comment: "I was happy I didn't have to catch the fish myself."
+    url: "https://amazon.s3/no-cap/photo/1"
+  }
+---
+### DELETE
 
-## Development
+`DELETE /photo/1234`
+  Deletes the photo with the id of 1234
 
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install -g webpack
-npm install
-
-```
-
+  Example input:
+  {
+    method: 'DELETE',
+    url: /photo/1234
+  }
