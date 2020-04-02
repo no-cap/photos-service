@@ -22,6 +22,7 @@ A service that displays scrollable and clickable photos for given restuarant pag
 `POST /photo`
 
   Posts a photo url to the photos table
+  
   Example input:
   ```
   {
@@ -37,6 +38,7 @@ A service that displays scrollable and clickable photos for given restuarant pag
 `GET restaurant/456/photos`
   
   Gets all photos for restaurant with an id of 456
+
   Example response:
   ```
   [
@@ -53,6 +55,7 @@ A service that displays scrollable and clickable photos for given restuarant pag
 `GET /photo/1234`
   
   Gets the photo with an id of 1234
+
   Example response:
   ```
   {
@@ -69,6 +72,7 @@ A service that displays scrollable and clickable photos for given restuarant pag
 `PUT /photo/1234`
   
   Updates the photo with the id of 1234
+
   Example input:
   ```
   {
@@ -84,6 +88,7 @@ A service that displays scrollable and clickable photos for given restuarant pag
 `DELETE /photo/1234`
   
   Deletes the photo with the id of 1234
+
   Example input:
   ```
   {
