@@ -96,3 +96,8 @@ A service that displays scrollable and clickable photos for given restuarant pag
     url: /photo/1234
   }
   ```
+---
+
+## Schema Design
+
+![Photos Table](./Schema.png)
