@@ -100,20 +100,22 @@ A service that displays scrollable and clickable photos for given restuarant pag
 
 ## Schema Design
 
-![Photos Table](https://user-images.githubusercontent.com/6081506/78388112-4e275980-7595-11ea-8548-d890d11033a4.png)
+![Photos Table](https://user-images.githubusercontent.com/6081506/78412140-1933fa80-75c7-11ea-9c60-e19f13cd4d57.png)
 
-[
-  {
-    "1234 (id + partition key)": {
-      "restaurant_id": 5,
-      "url": "www.photo.com",
-      "username": "Cindy Loo",
-      "description": "This restaurant is real nice",
-      "date": "July 5, 2018",
-      "usericon": "www.tinyuserphoto.com",
-      "stars": 2,
-      "friends": 88
-    }
-  }
-]
+
+CREATE TABLE restaurants.photos (
+  
+  photo_id INT,
+  restaurant_id INT,
+  user_id INT,
+  date VARCHAR,
+  url VARCHAR,
+  description VARCHAR,
+  username VARCHAR,
+  icon VARCHAR,
+  stars SMALLINT,
+  friends SMALLINT,
+  PRIMARY KEY (restaurant_id (partitionKey), photo_id (clusterKey))
+
+) 
 
