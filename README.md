@@ -100,4 +100,20 @@ A service that displays scrollable and clickable photos for given restuarant pag
 
 ## Schema Design
 
-![Photos Table](https://user-images.githubusercontent.com/6081506/78316798-65befd80-7515-11ea-887f-25c1eb29f68b.png)
+![Photos Table](https://user-images.githubusercontent.com/6081506/78388112-4e275980-7595-11ea-8548-d890d11033a4.png)
+
+[
+  {
+    "1234 (id + partition key)": {
+      "restaurant_id": 5,
+      "url": "www.photo.com",
+      "username": "Cindy Loo",
+      "description": "This restaurant is real nice",
+      "date": "July 5, 2018",
+      "usericon": "www.tinyuserphoto.com",
+      "stars": 2,
+      "friends": 88
+    }
+  }
+]
+
