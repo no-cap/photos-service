@@ -100,4 +100,4 @@ A service that displays scrollable and clickable photos for given restuarant pag
 
 ## Schema Design
 
-![Photos Table](./Schema.png)
+![Photos Table](https://user-images.githubusercontent.com/6081506/78316798-65befd80-7515-11ea-887f-25c1eb29f68b.png)
