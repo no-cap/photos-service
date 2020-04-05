@@ -102,9 +102,9 @@ A service that displays scrollable and clickable photos for given restuarant pag
 
 ![Photos Table](https://user-images.githubusercontent.com/6081506/78412140-1933fa80-75c7-11ea-9c60-e19f13cd4d57.png)
 
-
+```
 CREATE TABLE restaurants.photos (
-  
+
   photo_id INT,
   restaurant_id INT,
   user_id INT,
@@ -118,4 +118,4 @@ CREATE TABLE restaurants.photos (
   PRIMARY KEY (restaurant_id (partitionKey), photo_id (clusterKey))
 
 ) 
-
+```
