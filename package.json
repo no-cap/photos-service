@@ -7,7 +7,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "seed": "node db/seeders/dummyData.js",
+    "seed": "node database/seed.js",
     "start": "nodemon server/index.js",
     "build:react": "webpack -d --watch",
     "test": "jest"
@@ -28,8 +28,10 @@
     "color-name": "^1.1.4",
     "css": "^2.2.4",
     "css-loader": "^3.4.2",
+    "csv-write-stream": "^2.0.0",
     "dependency": "0.0.1",
     "express": "^4.17.1",
+    "faker": "^4.1.0",
     "install": "^0.13.0",
     "jquery": "^3.4.1",
     "jsdom": "^15.2.1",
@@ -41,11 +43,13 @@
     "nodemon": "^2.0.2",
     "normalize.css": "^8.0.1",
     "path": "^0.12.7",
+    "pg-promise": "^10.5.0",
     "promise": "^8.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.13.0",
     "react-slick": "^0.25.2",
+    "sequelize": "^5.21.6",
     "sinon": "^9.0.1",
     "sinon-test": "^3.0.0",
     "style-loader": "^1.1.3",
