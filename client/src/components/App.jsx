@@ -20,7 +20,7 @@ class App extends React.Component {
   componentDidMount() {
     ajax({
       type: 'GET',
-      url: '/seeAllPhotos',
+      url: '/photosForRestaurant',
       success: (photos) => this.setState({ photos }),
       error: (error) => console.log('error', error),
     });

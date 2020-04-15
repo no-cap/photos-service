@@ -1,41 +1,47 @@
-/* eslint-disable no-console */
+require('newrelic');
 const express = require('express');
 const path = require('path');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const fs = require('fs');
-
 const app = express();
 const port = 3004;
 
-
+const controller = require('./controllers/controller.js');
 
 // import middleware for body parser and json
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// to display static file
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.get('/seeAllPhotos', (req, res) => {
-  //   console.log(res.body);
-  Photo.find(res.body, (err, photo) => {
-    if (err) {
-      res.send(err);
-    }
-    // res.json(photo);
-    res.send(photo);
-  });
-});
+app.get('/photosForRestaurant', (req, res) => {
+    console.log('Received a GET request for all photos for a restaurant');
 
-app.get('/seeAllPhotos/:photoId', (req, res) => {
-  const { photoId } = req.params;
-  Photo.findById(photoId, (err, photo) => {
-    if (err) {
-      res.send(err);
-    }
-    res.json(photo);
-  });
+    controller.photos.getAll(req, (error, results) => {
+        if (error) {
+            console.log('Error getting all photos from db', error);
+            res.status(400);
+        }
+        else {
+            console.log(results);
+            res.status(200);
+            res.send(results);
+        }
+    })
+});
+app.get('/onePhoto', (req, res) => {
+    console.log('Received a GET request for one photo');
+
+    controller.photos.getOne(req, (error, results) => {
+        if (error) {
+            console.log('Error getting a photo from the db', error);
+            res.status(400);
+        }
+        else {
+            console.log(results);
+            res.status(200);
+            res.send(results);
+        }
+    })
 });
 
 app.listen(port, () => console.log(`App listening on port ${port}!`));

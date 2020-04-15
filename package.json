@@ -1,7 +1,7 @@
 {
-  "name": "see-all-photos-services",
+  "name": "food-photos",
   "description": "a photo viewer app",
-  "author": "kelsy vaughn",
+  "author": "laura heddleston + kelsy vaughn",
   "license": "ISC",
   "engines": {
     "node": ">=6.13.0"
@@ -43,6 +43,7 @@
     "mongoose-seed-db": "0.0.10",
     "multer": "^1.4.2",
     "mysql": "^2.18.1",
+    "newrelic": "^6.5.0",
     "nodemon": "^2.0.2",
     "normalize.css": "^8.0.1",
     "path": "^0.12.7",
