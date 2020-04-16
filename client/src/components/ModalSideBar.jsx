@@ -6,10 +6,11 @@ const ModalSideBar = ({ photos }) => {
   return (
     <div className={styles.sidebar}>
       {photos.map((photo) => (
-        <SideBar key={photo._id} photo={photo} />
-  ))
+        <SideBar key={photo.id} photo={photo} />
+      ))
+      }
+    </div>
+  )
 }
-</div>
-)}
 
 export default ModalSideBar;
