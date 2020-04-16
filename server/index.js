@@ -44,4 +44,20 @@ app.get('/onePhoto', (req, res) => {
     })
 });
 
+app.get('/users', (req, res) => {
+    console.log('Received a GET request for one photo');
+
+    controller.users.get(req, (error, results) => {
+        if (error) {
+            console.log('Error getting users from the db', error);
+            res.status(400);
+        }
+        else {
+            console.log(results);
+            res.status(200);
+            res.send(results);
+        }
+    })
+});
+
 app.listen(port, () => console.log(`App listening on port ${port}!`));

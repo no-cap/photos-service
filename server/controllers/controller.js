@@ -39,12 +39,14 @@ module.exports = {
     },
 
     users: {
-        get: function (req, res) {
-            models.users.get(function (error, results) {
+        get: function (req, callback) {
+            models.users.get(req, (error, results) => {
                 if (error) {
-                    throw new Error('Error getting from users', error);
+                    callback(error, null);
                 }
-                res.json(results);
+                else {
+                    callback(null, results);
+                }
             });
         },
         post: function (req, res) {
