@@ -8,9 +8,9 @@
   },
   "scripts": {
     "seed": "node database/seed.js",
-    "start": "nodemon server/index.js",
+    "start": "node server/index.js",
     "build:react": "webpack -d --watch",
-    "test": "jest"
+    "k6": "node script.js"
   },
   "dependencies": {
     "@babel/core": "^7.8.7",
